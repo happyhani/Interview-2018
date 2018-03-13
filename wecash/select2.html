@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+		    <select class="select1">
+		      <option disabled value="" selected="selected">请选择</option>
+		    </select>
+		    <select class="select2">
+		      <option disabled value="" selected="selected">请选择</option>
+		    </select>
+		    <select class="select3">
+		      <option disabled value="" selected="selected">请选择</option>
+		    </select>
+		</div>
+		
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			for (var i=1;i<=10;i++) {
+				$('select').append(`<option value="${i}">${i}</option>`);	
+			}
+		
+			$('select').change(function () {
+				var text = $(this).find('option:selected').text();
+				$(this).siblings().find(`option[value=${text}]`).remove();
+			});
+			
+		</script>		
+	</body>
+</html>

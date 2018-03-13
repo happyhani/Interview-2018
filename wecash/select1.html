@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue</title>
+</head>
+<body>
+  <div id="app">
+    <select v-model="select1">
+      <option disabled value="">请选择</option>
+      <option v-for="i in 10" v-if="i!=select2&&i!=select3">{{i}}</option>
+    </select>
+    <select v-model="select2">
+      <option disabled value="">请选择</option>
+      <option v-for="i in 10" v-if="i!=select1&&i!=select3">{{i}}</option>
+    </select>
+    <select v-model="select3">
+      <option disabled value="">请选择</option>
+      <option v-for="i in 10" v-if="i!=select1&&i!=select2">{{i}}</option>
+    </select>
+    {{ message }}
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        select1:'',
+        select2:'',
+        select3:''
+      }
+    })
+  </script>
+</body>
+</html>

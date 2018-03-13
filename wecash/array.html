@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	  <meta charset="utf-8">
+	  <title>array</title>
+	  <style type="text/css">
+	  	.active {
+				color: #E07514;
+	  	}
+	  </style>
+	</head>
+
+	<body>
+	  <code>
+	      [
+	        [1,2,33,5],
+	        [2,10,15,16],
+	        [3,1,21,20]
+	      ]
+	    </code>
+	  <div id="div1"></div>  
+	  
+	  <script type="text/javascript">
+	    let arr = [
+	      [1, 2, 33, 5],
+	      [2, 10, 15, 16],
+	      [3, 1, 21, 20]
+	    ];
+	    let max = [];
+	    arr.forEach(item => {
+	      item.forEach((v, k) => {
+	        if (max[k] === undefined) {
+	          max[k] = v
+	        }else {
+	          max[k] = Math.max(max[k], v)
+	        }
+	      })
+	    })
+	    let res='<table border="1px" cellspacing="0" cellpadding="10">';
+	    arr.forEach(item => {
+	      res += '<tr>';
+	      item.forEach((v,k) => {
+	        res += `<td class="${v===max[k]?'active':''}"> ${v} </td>`;
+	      })
+	      res += '</tr>';
+	    })
+	    res += '</table>';
+	    
+	    console.log(res,max);
+	    
+	    div1.innerHTML = res;
+	  </script>
+	</body>
+
+</html>
